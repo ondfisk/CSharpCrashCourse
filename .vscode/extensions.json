@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"davidanson.vscode-markdownlint",
+		"esbenp.prettier-vscode",
+		"marp-team.marp-vscode",
+		"mechatroner.rainbow-csv",
+		"ms-dotnettools.csharp",
+		"streetsidesoftware.code-spell-checker",
+		"streetsidesoftware.code-spell-checker-danish"
+	]
+}
