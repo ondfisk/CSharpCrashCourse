@@ -41,6 +41,47 @@ Thesis: *Forecalc – Developing a core spreadsheet implementation in F♯*
 
 ---
 
+# Source
+
+<https://github.com/ondfisk/crash>
+
+---
+
+# Disclaimer
+
+---
+
+# Books
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![bg width:250px](images/csharp-pocket-reference.jpg)
+![bg width:350px](images/code-that-fits-in-your-head.jpg)
+![bg width:300px](images/asp-net-core-in-action.png)
+
+---
+
+# Online Training
+
+[C♯ language documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
+
+[Free Foundational C# with Microsoft Certification](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/)
+
+[LinkedIn Learning](https://www.linkedin.com/learning/topics/c-sharp)
+
+---
+
 # C♯
 
 > "C♯ is intended to be a simple, modern, general-purpose, object-oriented programming language."
@@ -177,11 +218,43 @@ C♯ language specification, 5th edition, December 2017
 
 ---
 
+# .NET Framework vs. .NET (Core)
+
+## .NET Framework
+
+> The .NET Framework (pronounced as "dot net") is a proprietary software framework developed by Microsoft that **runs primarily on Microsoft Windows**.
+>
+> It was the predominant implementation of the Common Language Infrastructure (CLI) until being superseded by the cross-platform .NET project.
+
+Version 4.8 (2019) is the *last* and *final* version.
+Security patches only going forward.
+
+---
+
+# .NET Framework vs. .NET (Core)
+
+## .NET
+
+> The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems.
+>
+> The project is mainly developed by Microsoft employees by way of the .NET Foundation and is released under an MIT License.
+
+Released yearly each november with *even* versions having *LTS* (3 years).
+Next version will be **.NET 10 (LTS)** due November 2025.
+
+---
+
 # Demo
 
 ## `Hello, World!`
 
-### `Hello, [User]!`
+Inspect the `Console` class
+
+Top-level statements
+
+## `Hello, [User]!`
+
+Inspect the `string` class and an instance of it
 
 ---
 
@@ -197,13 +270,19 @@ One, the driver, writes code while the other, the observer or navigator, reviews
 
 # Exercise 1
 
-Create a console application using the command line.
+Create a console application.
 
 The application should display `Hello, World!` when run.
 
 The application should display `Hello, <input>!` when run with `<input>` as the first command line argument.
 
 The application should crash with an `ArgumentOutOfRangeException` if run with more than one command line argument.
+
+---
+
+# Demo
+
+## Debugging `Hello, World!`
 
 ---
 
@@ -291,7 +370,7 @@ double d = 1.79769313486232E+308;                string str;
 float f = 3.402823E+38;                          dynamic dyn;
 ```
 
-<https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types>
+[Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types)
 
 ---
 
@@ -337,14 +416,19 @@ var output = number == 42
 # Methods
 
 ```csharp
-static bool IsEven(int number)
+public static bool IsEven(int number)
 {
     return number % 2 == 0;
 }
 ```
 
 ```csharp
-static bool IsOdd(int number) => number % 2 == 1;
+private string _name;
+
+public void PrintName()
+{
+    Console.WriteLine(_name);
+}
 ```
 
 ---
@@ -374,20 +458,6 @@ static void ShowCard(int cardNumber)
 
 ---
 
-# Switch Expression
-
-```csharp
-string cardName = cardNumber switch
-{
-    13 => "King",
-    12 => "Queen",
-    11 => "Jack",
-    _ => cardNumber.ToString()
-};
-```
-
----
-
 # Strings
 
 ```csharp
@@ -395,13 +465,13 @@ int number = 42;
 
 string answer1 = "The answer is " + number;
 
-var answer2 = string.Format("The answer is {0}", number);
+var answer2 = $"The answer is {number}";
 
-var answer3 = $"The answer is {number}";
+var same = answer1 == answer2; // true
 
-var same = answer1 == answer2 == answer3; // true
+var escaped = "C:\\Users\\account\\Source\\Repos\\crash\\src\\Exercise3\\Wizards.csv";
 
-var verbatim = @"C:\Users\account\Source\Repos\CSharpCrashCourse\src\Exercise3\Wizards.csv"
+var verbatim = @"C:\Users\account\Source\Repos\crash\src\Exercise3\Wizards.csv";
 ```
 
 ---
@@ -409,11 +479,11 @@ var verbatim = @"C:\Users\account\Source\Repos\CSharpCrashCourse\src\Exercise3\W
 # `foreach`
 
 ```csharp
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+string[] cars = {"Mercedes Benz", "BMW", "Porsche"};
 
-foreach (string i in cars)
+foreach (var car in cars)
 {
-    Console.WriteLine(i);
+    Console.WriteLine(car);
 }
 ```
 
@@ -483,9 +553,9 @@ foreach (var number in numbers)
 
 # Exercise 2
 
-Clone: `git clone https://github.com/ondfisk/CSharpCrashCourse.git`
+Clone: `git clone https://github.com/ondfisk/crash.git`
 
-Implement at set of functions with `foreach`, `for`, `while`, `break`, `continue` and using:
+Implement a set of functions using the keywords `foreach`, `for`, `while`, `break`, `continue` and:
 
 - `src/Exercise2/ArrayFunctions.cs`
 - `tests/Exercise2.Tests/ArrayFunctionsTests.cs`
@@ -496,14 +566,29 @@ Rinse and repeat.
 
 ---
 
+# Enums
+
+```csharp
+public enum Currency
+{
+    DNK,
+    EUR,
+    USD,
+    GBP
+}
+```
+
+---
+
 # Records
 
 ```csharp
-public record Person(string FirstName, string LastName);
+public record Money(Currency Currency, decimal Amount);
 
-Person husband = new("Homer", "Simpson");
+Money eur = new(Currency.EUR, 42);
 
-Person wife = husband with { FirstName = "Marge" };
+Money dnk = eur with { Currency = Currency.DNK, Amount = eur.Amount * 7.6m };
+
 ```
 
 ---
@@ -513,19 +598,25 @@ Person wife = husband with { FirstName = "Marge" };
 ```csharp
 public class Container
 {
+    private readonly int _initialCapacity;
+
     private int _capacity;
 
-    public Container(int capacity) => _capacity = capacity;
+    public int Capacity => _capacity;
+
+    public Container(int capacity) => _initialCapacity = _capacity = capacity;
+
+    public void IncreaseCapacity(int extra)
+    {
+        _capacity += extra;
+    }
 }
 
 var container = new Container(42);
-```
 
-```csharp
-public class Container(int capacity)
-{
-    private int _capacity = capacity;
-}
+container.IncreaseCapacity(624);
+
+Console.WriteLine($"The container has currently a capacity of: {container.Capacity}");
 ```
 
 ---
@@ -540,13 +631,6 @@ public class Container
 
 var container = new Container();
 container.Capacity = 42;
-```
-
-```csharp
-public class Container
-{
-    public required int Capacity { get; init; }
-}
 
 var container = new Container { Capacity = 42 };
 ```
@@ -575,27 +659,6 @@ public class SomeType
 ```
 
 **Note**: Other modifiers: `internal`, `protected`, and `protected internal`.
-
----
-
-# Classic Properties
-
-```csharp
-public class SomeType
-{
-    private string? _fullName;
-
-    public string FullName
-    {
-        get
-        {
-            if (_fullName is null)
-                _fullName = $"{FirstName} {LastName}";
-            return _fullName;
-        }
-    }
-}
-```
 
 ---
 

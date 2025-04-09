@@ -77,3 +77,13 @@ Reset.
 Do parts 1-8 using TDD.
 
 Make search case insensitive and possibly accent insensitive.
+
+### Tips
+
+Split solution into more classes to make testing easier.
+
+For example, you may want to create a `ConsoleUtilities` class with a `ReadNumber` method:
+
+```csharp
+public static int ReadNumber(string prompt, bool required = false);
+```
