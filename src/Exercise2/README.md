@@ -10,3 +10,19 @@ Implement at set of functions with `foreach`, `for`, `while`, `break`, `continue
 Implement test `-->` Implement (part of) method.
 
 Rinse and repeat.
+
+## Notes
+
+To create a new *list* and add numbers to it you can:
+
+```csharp
+var list = new List<int>();
+list.Add(42);
+```
+
+For the last test you need some *ducks*:
+
+```csharp
+var repository = new DuckRepository();
+var ducks = repository.Read();
+```

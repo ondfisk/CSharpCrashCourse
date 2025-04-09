@@ -41,6 +41,47 @@ Thesis: *Forecalc – Developing a core spreadsheet implementation in F♯*
 
 ---
 
+# Source
+
+<https://github.com/ondfisk/crash>
+
+---
+
+# Disclaimer
+
+---
+
+# Books
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![bg width:250px](images/csharp-pocket-reference.jpg)
+![bg width:350px](images/code-that-fits-in-your-head.jpg)
+![bg width:300px](images/asp-net-core-in-action.png)
+
+---
+
+# Online Training
+
+[C♯ language documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
+
+[Free Foundational C# with Microsoft Certification](https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/)
+
+[LinkedIn Learning](https://www.linkedin.com/learning/topics/c-sharp)
+
+---
+
 # C♯
 
 > "C♯ is intended to be a simple, modern, general-purpose, object-oriented programming language."
@@ -177,6 +218,32 @@ C♯ language specification, 5th edition, December 2017
 
 ---
 
+# .NET Framework vs. .NET (Core)
+
+## .NET Framework
+
+> The .NET Framework (pronounced as "dot net") is a proprietary software framework developed by Microsoft that **runs primarily on Microsoft Windows**.
+>
+> It was the predominant implementation of the Common Language Infrastructure (CLI) until being superseded by the cross-platform .NET project.
+
+Version 4.8 (2019) is the *last* and *final* version.
+Security patches only going forward.
+
+---
+
+# .NET Framework vs. .NET (Core)
+
+## .NET
+
+> The .NET platform (pronounced as "dot net") is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems.
+>
+> The project is mainly developed by Microsoft employees by way of the .NET Foundation and is released under an MIT License.
+
+Released yearly each november with *even* versions having *LTS* (3 years).
+Next version is version 10 due November 2025.
+
+---
+
 # Demo
 
 ## `Hello, World!`
@@ -291,7 +358,7 @@ double d = 1.79769313486232E+308;                string str;
 float f = 3.402823E+38;                          dynamic dyn;
 ```
 
-<https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types>
+[Built-in types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types)
 
 ---
 
@@ -401,7 +468,9 @@ var answer3 = $"The answer is {number}";
 
 var same = answer1 == answer2 == answer3; // true
 
-var verbatim = @"C:\Users\account\Source\Repos\CSharpCrashCourse\src\Exercise3\Wizards.csv"
+var escaped = "C:\\Users\\account\\Source\\Repos\\CSharpCrashCourse\\src\\Exercise3\\Wizards.csv";
+
+var verbatim = @"C:\Users\account\Source\Repos\CSharpCrashCourse\src\Exercise3\Wizards.csv";
 ```
 
 ---
@@ -409,11 +478,11 @@ var verbatim = @"C:\Users\account\Source\Repos\CSharpCrashCourse\src\Exercise3\W
 # `foreach`
 
 ```csharp
-string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+string[] cars = {"Mercedes Benz", "BMW", "Porsche"};
 
-foreach (string i in cars)
+foreach (var car in cars)
 {
-    Console.WriteLine(i);
+    Console.WriteLine(car);
 }
 ```
 
