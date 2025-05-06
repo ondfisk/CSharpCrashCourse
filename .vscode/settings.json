@@ -11,5 +11,8 @@
         "Glomgold",
         "nameof",
         "Rockerduck"
-    ]
+    ],
+    "github.copilot.enable": {
+        "*": false
+    }
 }

@@ -522,7 +522,7 @@ var numbers = Enumerable.Range(1, 1000);
 
 foreach (var number in numbers)
 {
-    if (i == 42)
+    if (number == 42)
     {
         Console.WriteLine("Found it!");
         break;
@@ -541,11 +541,11 @@ var numbers = Enumerable.Range(1, 1000)
 
 foreach (var number in numbers)
 {
-    if (i % 2 == 1)
+    if (number % 2 == 1)
     {
         continue;
     }
-    Console.WriteLine($"Found even number: {i}");
+    Console.WriteLine($"Found even number: {number}");
 }
 ```
 
