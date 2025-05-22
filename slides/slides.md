@@ -907,11 +907,13 @@ Part 4, 5, 6, 7, and 8
 # Create a C♯ console app with a test library
 
 ```bash
+dotnet new install xunit.v3.templates
+
 mkdir MyApp
 cd MyApp
 
 dotnet new console -o src/MyApp
-dotnet new xunit -o tests/MyApp.Tests
+dotnet new xunit3 -o tests/MyApp.Tests
 
 dotnet new sln
 dotnet sln add src/MyApp

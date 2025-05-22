@@ -1,5 +1,11 @@
 # Notes
 
+## xUnit v3
+
+```pwsh
+dotnet new install xunit.v3.templates
+```
+
 ## Testing `Main`
 
 Make `Program` class visible:
